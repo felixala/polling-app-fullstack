@@ -12,7 +12,6 @@ import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.SecurityBuilder;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -53,7 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean(BeanIds.AUTHENTICATION_MANAGER)
-    public AuthenticationManager authenticationManagerBean(){
+    public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
 
