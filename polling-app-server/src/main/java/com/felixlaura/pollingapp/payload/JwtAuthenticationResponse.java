@@ -4,7 +4,7 @@ public class JwtAuthenticationResponse {
 
     private String accessToken;
 
-    private String tokenType;
+    private String tokenType = "Bearer";
 
     public JwtAuthenticationResponse(String accessToken) {
         this.accessToken = accessToken;

@@ -1,5 +1,6 @@
 package com.felixlaura.pollingapp.security;
 
+import com.felixlaura.pollingapp.exception.ResourceNotFoundException;
 import com.felixlaura.pollingapp.model.User;
 import com.felixlaura.pollingapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     //This method is used by JWTAuthenticationFilter
     @Transactional
     public UserDetails loadUserById(Long id){
-        User user = userRepository.findById(id).orElseThrow(()-> new UsernameNotFoundException("User not found with id: " + id));
+        User user = userRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("User", "id", id));
         return UserPrincipal.create(user);
     }
 }

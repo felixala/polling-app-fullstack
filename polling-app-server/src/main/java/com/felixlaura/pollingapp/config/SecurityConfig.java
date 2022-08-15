@@ -31,6 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     //To authenticate a User or perform many role-based checks, Sepring security need to load user details somehow.
     //This object implements UserDetailsService interface and provides the implementation for loadUserByUsername() method.
+    @Autowired
     CustomUserDetailsService customUserDetailsService;
 
     //This class is used to return 401 unathorized error to clients that tr access to protected resource whihtout
